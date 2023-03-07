@@ -17,6 +17,8 @@ showMoreBtn.addEventListener('click', function(e) {
         showMoreBtn.style.display = 'none';
 });
 
+const mediaQuery = window.matchMedia('(max-width: 740px)');
+
 const playButton = document.querySelector('.play');
 const video = document.querySelector('.excurs-video-container iframe');
 const hand = document.querySelector('.hand2')
@@ -24,7 +26,13 @@ const hand = document.querySelector('.hand2')
 playButton.addEventListener('click', function() {
     video.style.display = 'block';
     playButton.style.display = 'none';
-    hand.style.top = '-40px';
-    hand.style.left = '-160px';
-    playButton.blur();
+    if (mediaQuery.matches) { 
+      hand.style.top = '-30px'; 
+      hand.style.left = '-125px'; 
+  } else { 
+      hand.style.top = '-40px'; 
+      hand.style.left = '-160px'; 
+  }
+  
+  playButton.blur();
 });
